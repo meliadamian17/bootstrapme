@@ -1,0 +1,29 @@
+name: express
+description: "Bootstrap an Express.js server"
+language: js
+framework: express
+files:
+  - path: "package.json"
+    content: |
+      {
+        "name": "myexpressapp",
+        "version": "1.0.0",
+        "main": "index.js",
+        "dependencies": {
+          "express": "^4.17.1"
+        }
+      }
+  - path: "index.js"
+    content: |
+      const express = require('express');
+      const app = express();
+      const port = process.env.PORT || 3000;
+
+      app.get('/', (req, res) => {
+        res.send('Hello from Express!');
+      });
+
+      app.listen(port, () => console.log(`Server running on port ${port}`));
+post_install_commands:
+  - "npm install"
+

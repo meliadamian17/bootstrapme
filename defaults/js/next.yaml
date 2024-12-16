@@ -1,0 +1,9 @@
+# ~/.config/bootstrapme/js/createnextapp.yaml
+name: Create Next App 
+description: "Bootstrap a Next.js project"
+language: js
+framework: Next 
+post_install_commands:
+  - "npx create-next-app {{ project_name }} --ts --use-npm --eslint --src-dir --tailwind --app --no-turbopack --no-import-alias"
+
+

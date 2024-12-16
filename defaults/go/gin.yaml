@@ -1,0 +1,10 @@
+name: Gin 
+description: "Bootstrap a Gin-based Go server"
+language: go
+framework: gin
+variables:
+  module_name: "github.com/{{ username }}/myginapp"
+post_install_commands:
+  - "go mod init {{ module_name }}"
+  - "go get github.com/gin-gonic/gin"
+

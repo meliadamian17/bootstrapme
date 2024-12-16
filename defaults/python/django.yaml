@@ -1,0 +1,12 @@
+name: django
+description: "Bootstrap a standard Django project"
+language: python
+framework: django
+template_url: "https://github.com/someuser/django-starter-template.git"
+variables:
+  project_name: "mydjangoapp"
+post_install_commands:
+  - "python3 -m venv venv"
+  - "source venv/bin/activate && pip install django"
+  - "django-admin startproject {{ project_name }} ."
+

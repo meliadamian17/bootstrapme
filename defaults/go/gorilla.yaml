@@ -1,0 +1,29 @@
+name: Gorilla 
+description: "Bootstrap a Gorilla Mux-based Go server"
+language: go
+framework: gorilla
+files:
+  - path: "main.go"
+    content: |
+      package main
+
+      import (
+        "fmt"
+        "log"
+        "net/http"
+
+        "github.com/gorilla/mux"
+      )
+
+      func main() {
+        r := mux.NewRouter()
+        r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+          fmt.Fprintln(w, "Hello from Gorilla Mux!")
+        })
+        log.Println("Server listening on :8080")
+        log.Fatal(http.ListenAndServe(":8080", r))
+      }
+post_install_commands:
+  - "go mod init github.com/{{ username }}/mygorillaapp"
+  - "go get github.com/gorilla/mux"
+

@@ -1,0 +1,22 @@
+name: flask
+description: "Bootstrap a Flask project"
+language: python
+framework: flask
+variables:
+  project_name: "myflaskapp"
+files:
+  - path: "requirements.txt"
+    content: |
+      Flask==2.0.1
+  - path: "app.py"
+    content: |
+      from flask import Flask
+      app = Flask(__name__)
+
+      @app.route("/")
+      def hello():
+          return "Hello World!"
+post_install_commands:
+  - "python3 -m venv venv"
+  - "source venv/bin/activate && pip install -r requirements.txt"
+

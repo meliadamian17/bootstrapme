@@ -1,0 +1,8 @@
+# ~/.config/bootstrapme/js/createreactapp.yaml
+name: Create React App 
+description: "Bootstrap a create-react-app project"
+language: js
+framework: React 
+post_install_commands:
+  - "npx create-react-app {{ project_name }}"
+
